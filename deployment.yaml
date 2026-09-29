@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: mathquizapp
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: mathquizapp
+
+  template:
+    metadata:
+      labels:
+        app: mathquizapp
+
+    spec:
+      containers:
+      - name: mathquizapp
+        image: omkar634/mathquizapp:v1
+        ports:
+        - containerPort: 8080
