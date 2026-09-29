@@ -1,9 +1,10 @@
 pipeline {
+
     agent any
 
     tools {
-        jdk 'JDK21'
-        maven 'Maven'
+        jdk 'JDK25'
+        maven 'Maven3'
     }
 
     environment {
@@ -51,15 +52,16 @@ pipeline {
                 bat 'kubectl apply -f service.yaml'
             }
         }
+
     }
 
     post {
         success {
-            echo 'Pipeline executed successfully!'
+            echo 'CI/CD Pipeline executed successfully!'
         }
 
         failure {
-            echo 'Pipeline failed.'
+            echo 'CI/CD Pipeline failed!'
         }
     }
 }
